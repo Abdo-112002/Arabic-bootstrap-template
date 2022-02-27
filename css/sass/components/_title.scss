@@ -1,0 +1,13 @@
+
+
+
+.title {
+    
+    &::after {
+        content: '';
+        display: block;
+        width: 100px;
+        margin-top: 10px;
+        border-bottom: 4px solid goldenrod;
+    }
+}

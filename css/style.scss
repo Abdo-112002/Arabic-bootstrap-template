@@ -1,0 +1,21 @@
+
+// google font 
+// font is cairo
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;800&family=Rubik:wght@400;600;800&display=swap');
+
+ body {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box !important;
+     font-family: Cairo , sans-serif;
+     overflow-x: hidden;
+     text-align: right;
+ }
+
+@import "../css/sass/helper/vars";
+@import "../css/sass/helper/mixin";
+@import "../css/sass/layout/header";
+@import "../css/sass/components/title";
+@import "../css/sass/components/btns";
+@import "../css/sass/pages/home";
+@import "../css/sass/layout/footer";

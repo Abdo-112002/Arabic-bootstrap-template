@@ -1,0 +1,39 @@
+
+
+.header {
+    box-shadow: 3px 3px 20px $shadow-color;
+    .navbar {
+        padding: 0px 1rem;
+        background-color: rgba($color: $shadow-color, $alpha: .7);
+        .navbar-brand {
+           img {
+               width: 60px;
+           }
+        }
+
+        .nav-item {
+            padding: 10px 0px;
+            margin-right: 5px;
+            transition: .2s ease-in-out;
+            @include tablet {
+                margin: 5px 0px;
+                padding: 0px 10px;
+            }
+            &.active , &:hover {
+                background-color: $shadow-color;
+                border-bottom: 3px solid goldenrod;
+                
+                a {color: goldenrod ;}
+            }
+
+            .dropdown-menu {
+                border: none;
+                border-radius: 0px;
+                @include tablet {
+                    background: transparent;
+                }
+            }
+        }
+    }
+    
+}

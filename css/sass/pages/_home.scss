@@ -1,0 +1,349 @@
+
+
+
+// include home animation 
+@keyframes landingLeft {
+    0%{
+        top: 45%;
+        opacity: .2;
+    }
+    100% {
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+
+.hero {
+    .carousel {
+
+        @include tablet {
+            &-control-next , &-control-prev {
+                border: 2px solid $secondColor;
+                width: 35px;
+                height: 35px;
+                top: 100%;
+                background-color: #d8d8dd;
+            }
+            &-control-next {
+                right: 50%;
+                transform: translate(40px, 20px);
+            }
+            &-control-prev {
+                left: 50%;
+                transform: translate(-40px, 20px);
+            }
+        }
+
+        .carousel-indicators {
+            li {
+                border: 2px solid goldenrod;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background: transparent;
+
+                &.active {
+                    background-color: rgba($color: $shadow-color, $alpha: .2)
+                }
+            }
+        }
+
+        .carousel-item {
+            height: 100vh;
+            min-height: 300px;
+            background: no-repeat scroll center scroll;
+            background-size: cover;
+            @include tablet {
+                height: 75vh;
+                background-size: auto !important;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .carousel-caption {
+                max-width: 600px;
+                top: 50%;
+                right: inherit;
+                left: 50% ;
+                @include prefixer(transform,translate(-50%,-50%),$prefixes-list);
+                @include prefixer(animation,landingLeft 1s cubic-bezier(0.68, -0.55, 0.265, 1.55),$prefixes-list);
+
+                @include tablet {
+                    text-align: right;
+                    width: 90%;
+                    h5 {
+                        font-size: 35px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// start about section
+.about {
+    padding: 80px 0px;
+
+    &__gallery {
+        button {
+            background: rgba($color: #000000, $alpha: .7);
+            height: 40px;
+            width: 50px;
+            margin-top: 25%;
+            font-weight: normal;
+            @include prefixer(transition,.3s ease-in-out,$prefixes-list);
+            &:hover {
+                background: rgba($color: goldenrod, $alpha: .8);
+            }
+        }
+    }
+}
+
+
+// start news section 
+.news {
+    padding: 80px 0px;
+    .card-deck {
+        padding: 0px 15px;
+    }
+    .card {
+        background: transparent;
+        border: none;
+
+        &-body {
+            padding-right: 0px;
+
+            .btn {
+               background: transparent;
+               border: 2px solid #d8d8d8;
+               &:hover {
+                   background: #d8d8d8 ;
+               }
+            }
+        }
+    }
+
+    .card-news {
+
+        &__item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0px;
+            border-bottom: 1px solid #d8d8dd;
+            @include prefixer(transition,.3s ease-in-out,$prefixes-list);
+            &:hover {
+                opacity: .7;
+                cursor: pointer;
+            }
+            .card-text {
+                padding: 0px 15px;
+                max-width: 300px;
+                @include tablet {
+                    max-width: fit-content;
+                }
+            }
+        }
+    }
+}
+
+// start CHOOSE US section
+.choose-us {
+    padding: 80px 0px;
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        @include tablet {
+            display: block;
+            margin-bottom: 20px;
+        }
+        &.item-2 {
+            .icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 20px;
+                width: 70px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: goldenrod;
+                color: white;
+                font-size: 25px;
+            }
+            @include tablet {
+                display: flex;
+            }
+        }
+        &--info {
+            @include tablet {
+                padding: 15px 0px !important;
+            }
+        }
+    }
+
+}
+
+
+// start who-we-are section
+.who-we-are {
+    @include bg-img("../../../img/who-we-are-bg.jpg");
+    height: 85vh;
+    @include tablet {
+        height: 55vh;
+    }
+    .vedio {
+        width: 100px;
+        height: 100px;
+        background: rgba($color: $shadow-color, $alpha: .7);
+        border-radius: 50%;
+        position: relative;
+        cursor: pointer;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;left: 50%;
+            transform: translate(-50%,-50%);
+            display: block;
+            width: 30px;height: 30px;
+            background-color: goldenrod;
+            clip-path: polygon(0 0, 0 100%, 100% 50%);
+        }
+        &:hover{
+            background-color: white;
+        }
+    }
+}
+
+
+
+// start testimonial section
+.testimonial {
+    padding: 80px 0px;
+
+    &__item {
+        .img-box {
+            border-radius: 50%;
+        }
+    }
+}
+
+// start SUBSCRIBE section
+.subscribe {
+    @include bg-img("../../../img/subscribe-our-newsletter-bg.jpg");
+    background-attachment: fixed;
+    background-position-x: 70%;
+    height: 400px;
+    background-size: cover;
+
+    &__item {
+        h2 {
+            font-size: 50px;
+            font-weight: 600;
+        }
+        p {
+            font-size: 20px;
+            margin: 25px 0px;
+            color: #d8d8dd ;
+        }
+        &--form {
+            input[type="email"] {
+                all: unset;
+                width: 75%;
+                padding: 10px 15px;
+                font-size: 15px;
+                border-radius: 40px;
+                background: rgba($color:$shadow-color , $alpha: .8);
+                @include tablet{padding: 10px 0px !important}
+            }
+            .btn {
+                color: white;
+                border-radius: 40px;
+                padding: 7px 15px;
+                &:hover {
+                    color: $secondColor;
+                }
+            }
+        }
+
+        @include tablet {
+            .form-group {
+                display: block !important;
+            }
+            h2 {
+                font-size: 30px;
+            }
+            p {
+                font-size: 17px;
+            }
+            input[type="email"] , .btn{
+                width: 100%;
+                border-radius: 0;
+            }
+        }
+    }
+}
+
+
+// start last-news section
+.last-news {
+    padding: 80px 0px;
+    .card {
+        cursor: pointer;
+        &:hover {
+            img {
+                opacity: .6;
+                transition: .3s ease-in-out;
+            }
+        }
+    }
+}
+
+// start footer section
+.footer {
+    padding: 80px 0px;
+    background-color: $hidding-color;
+    &__logo {
+        display: inline-block;
+        background-color: white;
+        padding: 10px 20px;
+    }
+    p {
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    .posts {
+        border-bottom: .5px solid rgba($color: #d8d8dd, $alpha: .4);
+        align-items: center;
+        div:nth-child(2){
+            line-height: 1;
+        }
+    }
+    .form-control {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 40px;
+        padding-left: 0px;
+        overflow: hidden;
+        border: 0px;
+        input {
+            border: none;
+            outline: none;
+        }
+        .btn {
+            border-radius: 40px;
+            width: 25%;
+            @include tablet{
+                width: 35%;
+            }
+        }
+    }
+}
